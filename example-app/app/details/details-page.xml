@@ -1,0 +1,54 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" class="default-page" navigatingTo="navigatingTo">
+
+  <ActionBar  title="{{ movie.details.title  }}" >
+  <ActionItem position="left" icon="font://&#xf0a8;" class="fa" tap="goBack" />
+ </ActionBar>
+ <StackLayout>
+ <ScrollView>
+
+<GridLayout
+    class="text"
+
+    rows="*, auto, auto,auto,auto,3*"
+     columns="6*,20,2*">
+       <Image row="0" colSpan="3" src="{{movie.details.poster_path?'https://image.tmdb.org/t/p/w500'+movie.details.poster_path:'[No image]'}}"/>
+         <Label row="1"  col="0"  text="{{movie.details.release_date}}" class="release_date h3" />
+         <Image row="1" col="1"   src="font://&#xf005;" class="fa fav_icon" />
+         <Label row="1" col="2"  text="{{movie.details.vote_average + '/10'}}" class="rating h3"/>
+
+        <Label text="Summary" row="2" col="0" colSpan="3"  class="h1 titles"/>
+            <Label
+            row="3"
+            colSpan="3"
+            fontSize="14"
+            tap="{{onTap}}"
+
+            textWrap="true"
+            text="{{movie.details.overview}}"/>
+        <Label text="Trailers" row="4" col="0" colSpan="3" class="h1 titles" />
+
+            <ScrollView  row="5" col="0" colSpan="3" orientation="horizontal">
+             <Repeater  row="5" items="{{  trailers }}" orientation="horizontal" height="50%">
+                 <Repeater.itemsLayout>
+            <FlexboxLayout   />
+        </Repeater.itemsLayout>
+          <Repeater.itemTemplate   >
+
+               <Image
+               src="{{' https://i3.ytimg.com/vi/' +$value.key+'/hqdefault.jpg'}}"
+                class="trailers"
+                tap="{{ $parents['Page'].onTap }}"
+              />
+
+          </Repeater.itemTemplate>
+        </Repeater>
+</ScrollView>
+   </GridLayout>
+
+ </ScrollView>
+ </StackLayout>
+
+
+ </Page>
+
+

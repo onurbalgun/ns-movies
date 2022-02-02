@@ -1,0 +1,33 @@
+
+.page{
+    background: gray;
+}
+.action-bar{
+    background: gray;
+    text-align: center;
+    margin-top: 10;
+    font-weight: bold;
+    width: 100%;
+    min-width:100%;
+
+}
+.title{
+
+background-color: rgba(35, 12, 44, 0.493);
+background-size: 100%;
+text-align: center;
+color: rgba(204, 40, 233, 0.986);
+font-weight: 700;
+font-size: 18;
+padding-bottom: 10;
+
+
+
+}
+.flexbox{
+    orientation:"horizontal";
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.466);
+}
+
